@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h2 class="mb-0">Crear Nuevo Artículo</h2>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    {{ form.as_p }}
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'all_articles' %}" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Guardar en Base de Datos</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
